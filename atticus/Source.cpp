@@ -1,11 +1,13 @@
 #include <fstream>
 #include <vector>
+#include <cstdlib>
 
 #include "Book.h"
+#include "utils.h"
 
 int main()
 {
-	std::fstream file{"C:\\Users\\gusbr\\source\\repos\\atticus\\books.txt", std::ios::in | std::ios::out};
+	std::fstream file{utils::filename, std::ios::in | std::ios::out};
 	std::vector<Book> shelf;
 	while (file.good())
 	{
@@ -17,4 +19,5 @@ int main()
 	{
 		std::cout << book;
 	}
+
 }
