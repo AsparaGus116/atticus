@@ -23,7 +23,7 @@ namespace utils
 		}
 	}
 
-	void printShelf(const std::vector<int>& shelf)
+	void printShelf(const std::vector<Book>& shelf)
 	{
 		int counter = 1;
 		for (auto book : shelf)
