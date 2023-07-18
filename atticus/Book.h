@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <fstream>
 
 class Book
 {
@@ -20,6 +21,7 @@ public:
 	int getPagesRead() const { return pagesRead; }
 	int getTotalPages() const { return totalPages; }
 	
+	void writeToFile(std::ofstream& f);
 
 	//overloaded IO
 	friend std::ostream& operator<< (std::ostream& out, const Book& b);
