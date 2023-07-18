@@ -60,3 +60,8 @@ bool operator<(const Book& b1, const Book& b2)
 {
 	return b1.getTitle() < b2.getTitle();
 }
+
+void Book::writeToFile(std::ofstream& f)
+{
+	f <<  title << '@' << pagesRead << '@' << totalPages << '\n';
+}
