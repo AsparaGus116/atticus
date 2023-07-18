@@ -1,7 +1,9 @@
 #include <fstream>
 #include <vector>
+#include <cstdlib>
 
 #include "Book.h"
+#include "utils.h"
 
 int main()
 {
@@ -17,4 +19,5 @@ int main()
 	{
 		std::cout << book;
 	}
+
 }
