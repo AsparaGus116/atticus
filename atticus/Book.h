@@ -21,7 +21,7 @@ public:
 	int getPagesRead() const { return pagesRead; }
 	int getTotalPages() const { return totalPages; }
 	
-	void writeToFile(std::ofstream& f);
+	void writeToFile(std::fstream& f);
 
 	//overloaded IO
 	friend std::ostream& operator<< (std::ostream& out, const Book& b);
