@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <algorithm>
 
 namespace utils
 {
@@ -9,6 +10,27 @@ namespace utils
 	{
 		f.open(filename, std::ios::trunc);
 		f.close();
+	}
+
+	void updateFile(std::fstream& f, const std::vector<Book>& shelf)
+	{
+		wipeFile(f);
+		std::sort(shelf.begin(), shelf.end());
+
+		for (auto book : shelf)
+		{
+			book.writeToFile(f);
+		}
+	}
+
+	void printShelf(const std::vector<int>& shelf)
+	{
+		int counter = 1;
+		for (auto book : shelf)
+		{
+			std::cout << counter << ") " << book;
+			++counter;
+		}
 	}
 }
 
