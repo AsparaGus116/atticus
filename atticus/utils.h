@@ -1,70 +1,25 @@
 #pragma once
 #include <fstream>
 #include <algorithm>
+#include <vector>
+#include <iostream>
+
+#include "Book.h"
+
+
 
 namespace utils
 {
-	std::string filename{ "C:\\Users\\gusbr\\source\\repos\\atticus\\books.txt" };
+	extern std::string filename;
 
-	std::string& toLower(std::string str)
-	{
-		std::string res = "";
-		for (auto c : str)
-		{
-			if (c >= 'A' && c <= 'Z')
-			{
-				res += c + 32;
-			}
-			else
-			{
-				res += c;
-			}
-		}
-		return res;
-	}
+	std::string toLower(std::string str);
 
-	std::string& toUpper(std::string str)
-	{
-		std::string res = "";
-		for (auto c : str)
-		{
-			if (c >= 'a' && c <= 'z')
-			{
-				res += c - 32;
-			}
-			else
-			{
-				res += c;
-			}
-		}
-		return res;
-	}
+	std::string toUpper(std::string str);
 
-	void wipeFile(std::fstream& f)
-	{
-		f.open(filename, std::ios::trunc);
-		f.close();
-	}
+	void wipeFile(std::fstream& f);
 
-	void updateFile(std::fstream& f, std::vector<Book>& shelf)
-	{
-		wipeFile(f);
-		std::sort(shelf.begin(), shelf.end());
+	void updateFile(std::fstream& f, std::vector<Book>& shelf);
 
-		for (auto book : shelf)
-		{
-			book.writeToFile(f);
-		}
-	}
-
-	void printShelf(const std::vector<Book>& shelf)
-	{
-		int counter = 1;
-		for (auto book : shelf)
-		{
-			std::cout << counter << ") " << book;
-			++counter;
-		}
-	}
+	void printShelf(std::vector<Book>& shelf);
 }
 
