@@ -1,1 +1,1 @@
-atticus
+A command line utility to log the books I'm currently reading and my progress. This is all in a (most likely vain) attempt to start actually finishing books on my docket.
