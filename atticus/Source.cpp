@@ -16,17 +16,16 @@ int main()
 		file >> b;
 		shelf.push_back(b);
 	}
-	utils::wipeFile(file);
-	std::sort(shelf.begin(), shelf.end()); // sorts books alphabetically
-	for (auto book : shelf)
-	{
-		std::cout << book;
-	}
+	utils::updateFile(file, shelf);
+
+	utils::printShelf(shelf);
 	
 
-	for (auto book : shelf)
+	char option = '\0';
+	std::string optionList{ "armuv" };
+	do
 	{
-		book.writeToFile(file);
-	}
+
+	}while()
 
 }
