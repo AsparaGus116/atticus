@@ -22,7 +22,7 @@ std::ostream& operator<< (std::ostream& out, const Book& b)
 		out << '-';
 	}
 	out << "]\t" << b.getPagesRead() << " / " << b.getTotalPages() << '(' << percentCompleteInt << "%)";
-
+	out << '\n';
 	return out;
 }
 
