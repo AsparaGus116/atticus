@@ -24,6 +24,8 @@ public:
 	//overloaded IO
 	friend std::ostream& operator<< (std::ostream& out, const Book& b);
 	friend std::istream& operator>> (std::istream& in, Book& b);
+
+	friend bool operator<(const Book& b1, const Book& b2);
 };
 
 

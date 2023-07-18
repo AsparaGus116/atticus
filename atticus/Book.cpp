@@ -55,3 +55,8 @@ std::istream& operator>>(std::istream& in, Book& b)
 
 	return in;
 }
+
+bool operator<(const Book& b1, const Book& b2)
+{
+	return b1.getTitle() < b2.getTitle();
+}
