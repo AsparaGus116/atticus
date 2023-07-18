@@ -32,7 +32,7 @@ public:
 	friend std::istream& operator>> (std::istream& in, Book& b);
 
 	friend bool operator<(const Book& b1, const Book& b2);
-	friend bool operator==(const Book& b1, const Book& b2);
+	bool operator==(std::string s) const;
 };
 
 

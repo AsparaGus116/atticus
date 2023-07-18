@@ -1,5 +1,7 @@
 #include "Book.h"
 
+#include "utils.h"
+
 #define PLACEHOLDER 64
 #define BAR_SIZE 50
 
@@ -61,11 +63,6 @@ bool operator<(const Book& b1, const Book& b2)
 	return b1.getTitle() < b2.getTitle();
 }
 
-bool operator==(const Book& b1, const Book& b2)
-{
-	return b1.getTitle() == b2.getTitle();
-}
-
 Book::Book(std::string m_title, int m_pagesRead, int m_totalPages):
 	title{m_title},
 	pagesRead{m_pagesRead},
@@ -76,4 +73,9 @@ Book::Book(std::string m_title, int m_pagesRead, int m_totalPages):
 void Book::writeToFile(std::fstream& f)
 {
 	f <<  title << '@' << pagesRead << '@' << totalPages << '\n';
+}
+
+bool Book::operator==(std::string s) const
+{
+	return utils::toLower(title) == utils::toLower(s);
 }
