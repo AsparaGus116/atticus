@@ -11,6 +11,10 @@ private:
 	int totalPages;
 	
 public:
+	//constructors
+	Book() = default;
+	Book(std::string m_title, int m_pagesRead, int m_totalPages);
+
 	//setters
 	void updateTitle(std::string newTitle) { title = newTitle; }
 	void updatePagesRead(int newPagesRead) { pagesRead = newPagesRead; }
@@ -28,6 +32,7 @@ public:
 	friend std::istream& operator>> (std::istream& in, Book& b);
 
 	friend bool operator<(const Book& b1, const Book& b2);
+	friend bool operator==(const Book& b1, const Book& b2);
 };
 
 

@@ -61,6 +61,18 @@ bool operator<(const Book& b1, const Book& b2)
 	return b1.getTitle() < b2.getTitle();
 }
 
+bool operator==(const Book& b1, const Book& b2)
+{
+	return b1.getTitle() == b2.getTitle();
+}
+
+Book::Book(std::string m_title, int m_pagesRead, int m_totalPages):
+	title{m_title},
+	pagesRead{m_pagesRead},
+	totalPages{m_totalPages}
+{
+}
+
 void Book::writeToFile(std::fstream& f)
 {
 	f <<  title << '@' << pagesRead << '@' << totalPages << '\n';
