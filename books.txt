@@ -1,2 +1,2 @@
-The Lord of the Rings: Fellowship of the Ring@123@456
-Pride and Prejudice@27@104
+E@234@567
+Pride and P@123@456

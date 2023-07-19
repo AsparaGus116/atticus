@@ -8,10 +8,10 @@
 
 #define PROMPT ">> "
 
-void handleAdd(std::vector<Book>& shelf);
-void handleDelete(std::vector<Book>& shelf);
-void handleModify(std::vector<Book>& shelf);
-void handleUpdate(std::vector<Book>& shelf);
+void handleAdd(std::vector<Book>& shelf, std::fstream& file);
+void handleDelete(std::vector<Book>& shelf, std::fstream& file);
+void handleModify(std::vector<Book>& shelf, std::fstream& file);
+void handleUpdate(std::vector<Book>& shelf, std::fstream& file);
 
 int main()
 {
@@ -41,20 +41,16 @@ int main()
 		switch (option)
 		{
 		case 'a':
-			handleAdd(shelf);
-			utils::updateFile(file, shelf);
+			handleAdd(shelf, file);
 			break;
 		case 'd':
-			handleDelete(shelf);
-			utils::updateFile(file, shelf);
+			handleDelete(shelf, file);
 			break;
 		case 'm':
-			handleModify(shelf);
-			utils::updateFile(file, shelf);
+			handleModify(shelf, file);
 			break;
 		case 'u':
-			handleUpdate(shelf);
-			utils::updateFile(file, shelf);
+			handleUpdate(shelf, file);
 			break;
 		case 'v':
 			utils::printShelf(shelf);
@@ -70,11 +66,11 @@ int main()
 	
 }
 
-void handleAdd(std::vector<Book>& shelf)
+void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 {
 	std::string title;
-	int pagesRead;
-	int totalPages;
+	int pagesRead = 0;
+	int totalPages = 0;
 	while (1)
 	{
 		std::cout << "What is the book's title?\n" << PROMPT;
@@ -105,21 +101,23 @@ void handleAdd(std::vector<Book>& shelf)
 		std::cout << "How many total pages are there?\n" << PROMPT;
 		std::cin >> totalPages;
 	} while (totalPages <= 0 && std::cout << "\nErr: Please enter valid length\n");
-	shelf.push_back({ title, pagesRead, totalPages });
+	Book b{ title, pagesRead, totalPages };
+	shelf.push_back(b);
+	utils::updateFile(file, shelf);
 	return;
 }
 
-void handleDelete(std::vector<Book>& shelf)
+void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 {
 
 }
 
-void handleModify(std::vector<Book>& shelf)
+void handleModify(std::vector<Book>& shelf, std::fstream& file)
 {
 
 }
 
-void handleUpdate(std::vector<Book>& shelf)
+void handleUpdate(std::vector<Book>& shelf, std::fstream& file)
 {
 
 }
