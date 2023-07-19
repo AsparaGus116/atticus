@@ -3,7 +3,7 @@
 #include "utils.h"
 
 #define PLACEHOLDER 64
-#define BAR_SIZE 50
+#define BAR_SIZE 100
 
 std::ostream& operator<< (std::ostream& out, const Book& b)
 {
@@ -36,10 +36,14 @@ std::istream& operator>>(std::istream& in, Book& b)
 	char c;
 	in >> c;
 	std::string title = "";
-	while (c != PLACEHOLDER) // @ acts as a placeholder to separate values
+	while (c != PLACEHOLDER && !in.eof()) // @ acts as a placeholder to separate values
 	{
 		title += c;
 		in >> c;
+	}
+	if (in.eof())
+	{
+		return in;
 	}
 	b.updateTitle(title);
 	int pagesRead;
@@ -53,8 +57,8 @@ std::istream& operator>>(std::istream& in, Book& b)
 	in >> totalPages;
 	b.updateTotalPages(totalPages);
 
-	in >> empty; // remove \n
-
+	std::string str;
+	std::getline(in, str, '\n');
 	return in;
 }
 

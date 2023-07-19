@@ -17,11 +17,15 @@ int main()
 {
 	std::fstream file{utils::filename, std::ios::in | std::ios::out};
 	std::vector<Book> shelf;
-	while (file.good())
+	while (!file.eof())
 	{
 		Book b;
 		file >> b;
-		shelf.push_back(b);
+		if (!file.eof())
+		{
+			shelf.push_back(b);
+		}
+		
 	}
 	utils::updateFile(file, shelf);
 
