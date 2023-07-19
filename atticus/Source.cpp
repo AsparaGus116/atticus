@@ -108,12 +108,24 @@ void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 	Book b{ title, pagesRead, totalPages };
 	shelf.push_back(b);
 	utils::updateFile(file, shelf);
+	std::cout << b.getTitle() << " successfully added.\n";
 	return;
 }
 
 void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 {
-
+	utils::printShelf(shelf);
+	
+	int sel = 0;
+	do
+	{
+		std::cout << "Which book would you like to delete? (1-" << shelf.size() << ")\n" << PROMPT;
+		std::cin >> sel;
+	} while (sel <= 0 && sel > shelf.size() && std::cout << "Please enter a valid number\n");
+	Book b = shelf[sel - 1];
+	shelf.erase(shelf.begin() + (sel - 1));
+	utils::updateFile(file, shelf);
+	std::cout << b.getTitle() << " successfully deleted.\n";
 }
 
 void handleModify(std::vector<Book>& shelf, std::fstream& file)
