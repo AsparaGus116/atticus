@@ -44,12 +44,16 @@ void utils::wipeFile(std::fstream& f)
 void utils::updateFile(std::fstream& f, std::vector<Book>& shelf)
 {
 	wipeFile(f);
+	f.close();
+	f.open(filename, std::ios::in | std::ios::out);
 	std::sort(shelf.begin(), shelf.end());
 
 	for (auto book : shelf)
 	{
 		book.writeToFile(f);
 	}
+	f.close();
+	f.open(filename, std::ios::in | std::ios::out);
 }
 
 void utils::printShelf(std::vector<Book>& shelf)
