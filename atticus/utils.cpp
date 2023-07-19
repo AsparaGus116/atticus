@@ -58,6 +58,7 @@ void utils::updateFile(std::fstream& f, std::vector<Book>& shelf)
 
 void utils::printShelf(std::vector<Book>& shelf)
 {
+	system("cls");
 	int counter = 1;
 	for (auto book : shelf)
 	{
