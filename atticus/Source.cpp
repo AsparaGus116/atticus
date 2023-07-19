@@ -130,7 +130,63 @@ void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 
 void handleModify(std::vector<Book>& shelf, std::fstream& file)
 {
+	utils::printShelf(shelf);
 
+	int sel = 0;
+	do
+	{
+		std::cout << "Which book would you like to modify? (1-" << shelf.size() << ")\n" << PROMPT;
+		std::cin >> sel;
+	} while (sel <= 0 && sel > shelf.size() && std::cout << "Please enter a valid number\n");
+
+	Book b = shelf[sel - 1];
+	shelf.erase(shelf.begin() + (sel - 1));
+
+	char c;
+
+	do
+	{
+		std::cout << "Would you like to change the title? (y/n)\n" << PROMPT;
+		std::cin >> c;
+		std::cin.ignore(4096, '\n');
+	} while (std::tolower(c) != 'y' && std::tolower(c) != 'n');
+
+	std::string newTitle = "";
+	if (std::tolower(c) == 'y')
+	{
+		std::cout << "Enter new title:\n" << PROMPT;
+		std::cin >> newTitle;
+	}
+	else
+	{
+		newTitle = b.getTitle();
+	}
+
+	c = '\0';
+
+	do
+	{
+		std::cout << "Would you like to change the total pages? (y/n)\n" << PROMPT;
+		std::cin >> c;
+		std::cin.ignore(4096, '\n');
+	} while (std::tolower(c) != 'y' && std::tolower(c) != 'n');
+
+	int newTotalPages = 0;
+
+	if (std::tolower(c) == 'y')
+	{
+		do
+		{
+			std::cout << "Enter new page count:\n" << PROMPT;
+		} while (newTotalPages <= 0);
+	}
+	else
+	{
+		newTotalPages = b.getTotalPages();
+	}
+	shelf.push_back({ newTitle, b.getPagesRead(), newTotalPages });
+	utils::updateFile(file, shelf);
+	std::cout << newTitle << " successfully modified.\n";
 }
 
 void handleUpdate(std::vector<Book>& shelf, std::fstream& file)
