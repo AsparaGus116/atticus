@@ -61,6 +61,7 @@ int main()
 			break;
 		case 'e':
 			return 0;
+			file.close();
 			break;
 		default:
 			break;
