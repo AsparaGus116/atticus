@@ -7,8 +7,8 @@ class Book
 {
 private:
 	std::string title;
-	int pagesRead;
-	int totalPages;
+	int pagesRead = 0;
+	int totalPages = 0;
 	
 public:
 	//constructors
