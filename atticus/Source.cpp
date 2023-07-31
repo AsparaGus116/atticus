@@ -1,7 +1,7 @@
-#include <fstream>
+#include <algorithm>
 #include <vector>
 #include <cstdlib>
-#include <algorithm>
+#include <fstream>
 
 #include "Book.h"
 #include "utils.h"
@@ -66,7 +66,7 @@ int main()
 			break;
 		case 'e':
 			return 0;
-			utils::updateFile(file, shelf);
+			utils::updateFile(shelf, file);
 			file.close();
 			break;
 		default:
@@ -115,7 +115,7 @@ void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 	} while (totalPages <= 0 && std::cout << "\nErr: Please enter valid length\n");
 	Book b{ title, pagesRead, totalPages };
 	shelf.push_back(b);
-	utils::updateFile(file, shelf);
+	utils::updateFile(shelf, file);
 	std::cout << b.getTitle() << " successfully added.\n";
 	return;
 }
@@ -133,7 +133,7 @@ void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 	} while (sel <= 0 && sel > shelf.size() && std::cout << "Please enter a valid number\n");
 	Book b = shelf[sel - 1];
 	shelf.erase(shelf.begin() + (sel - 1));
-	utils::updateFile(file, shelf);
+	utils::updateFile(shelf, file);
 	std::cout << b.getTitle() << " successfully deleted.\n";
 }
 
@@ -197,7 +197,7 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 	}
 	shelf.erase(shelf.begin() + (sel - 1));
 	shelf.push_back({ newTitle, b.getPagesRead(), newTotalPages });
-	utils::updateFile(file, shelf);
+	utils::updateFile(shelf, file);
 	std::cout << newTitle << " successfully modified.\n";
 }
 
@@ -224,6 +224,6 @@ void handleUpdate(std::vector<Book>& shelf, std::fstream& file)
 	} while (newPagesRead <= 0 && newPagesRead > b.getTotalPages());
 	shelf.erase(shelf.begin() + (sel - 1));
 	shelf.push_back({ b.getTitle(), newPagesRead, b.getTotalPages()});
-	utils::updateFile(file, shelf);
+	utils::updateFile(shelf, file);
 	std::cout << b.getTitle() << " successfully updated.\n";
 }

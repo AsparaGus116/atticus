@@ -35,23 +35,23 @@ std::string utils::toUpper(std::string str)
 	return res;
 }
 
-void utils::wipeFile(std::fstream& f)
+void utils::wipeFile(std::fstream& file)
 {
-	if (f.is_open())
+	if (file.is_open())
 	{
-		f.close();
+		file.close();
 	}
-	f.open(filename, std::ios::in | std::ios::out | std::ios::trunc);
+	file.open(filename, std::ios::in | std::ios::out | std::ios::trunc);
 }
 
-void utils::updateFile(std::fstream& f, std::vector<Book>& shelf)
+void utils::updateFile(std::vector<Book>& shelf, std::fstream& file)
 {
-	wipeFile(f);
+	wipeFile(file);
 	std::sort(shelf.begin(), shelf.end());
 
 	for (auto book : shelf)
 	{
-		f << book;
+		file << book;
 	}
 }
 

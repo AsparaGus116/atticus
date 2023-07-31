@@ -1,7 +1,7 @@
 #pragma once
-#include <string>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 class Book
 {
@@ -27,11 +27,11 @@ public:
 
 	//overloaded IO
 	friend std::ostream& operator<< (std::ostream& out, const Book& b);
-	friend std::ostream& operator<<(std::fstream& out, const Book& b);
+	friend std::ostream& operator<< (std::fstream& out, const Book& b);
 	friend std::istream& operator>> (std::istream& in, Book& b);
 
-	friend bool operator<(const Book& b1, const Book& b2);
-	bool operator==(std::string s) const;
+	friend bool operator< (const Book& b1, const Book& b2);
+	bool operator== (std::string s) const;
 };
 
 

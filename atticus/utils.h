@@ -1,13 +1,12 @@
 #pragma once
-#include <fstream>
+
 #include <algorithm>
-#include <vector>
-#include <iostream>
 #include <cstdio>
+#include <fstream>
+#include <iostream>
+#include <vector>
 
 #include "Book.h"
-
-
 
 namespace utils
 {
@@ -17,9 +16,9 @@ namespace utils
 
 	std::string toUpper(std::string str);
 
-	void wipeFile(std::fstream& f);
+	void wipeFile(std::fstream& file);
 
-	void updateFile(std::fstream& f, std::vector<Book>& shelf);
+	void updateFile(std::vector<Book>& shelf, std::fstream& file);
 
 	void printShelf(std::vector<Book>& shelf);
 }
