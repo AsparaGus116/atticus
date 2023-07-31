@@ -38,7 +38,7 @@ int main()
 		std::string optionList{ "admuve" };
 		do
 		{
-			std::cout << "Would you like to (a)dd, (d)elete, (m)odify a book, (u)pdate pages read, (v)iew, or (e)xit?\n";
+			std::cout << "Would you like to (a)dd, (d)elete, (m)odify a book, (u)pdate pages read, (v)iew, or (e)xit?\n" << PROMPT;
 			std::cin >> option;
 			std::cin.ignore(4096, '\n');
 		} while (optionList.find(option) == -1 && std::cout << "Invalid option, please try again.\n");
