@@ -51,7 +51,7 @@ void utils::updateFile(std::fstream& f, std::vector<Book>& shelf)
 
 	for (auto book : shelf)
 	{
-		book.writeToFile(f);
+		f << book;
 	}
 }
 
