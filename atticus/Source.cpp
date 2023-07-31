@@ -48,21 +48,26 @@ int main()
 		{
 		case 'a':
 			handleAdd(shelf, file);
+			file.close();
 			break;
 		case 'd':
 			handleDelete(shelf, file);
+			file.close();
 			break;
 		case 'm':
 			handleModify(shelf, file);
+			file.close();
 			break;
 		case 'u':
 			handleUpdate(shelf, file);
+			file.close();
 			break;
 		case 'v':
 			utils::printShelf(shelf);
 			break;
 		case 'e':
 			return 0;
+			utils::updateFile(file, shelf);
 			file.close();
 			break;
 		default:
@@ -75,6 +80,7 @@ int main()
 
 void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 {
+	file.open(utils::filename, std::ios::in | std::ios::out);
 	std::string title;
 	int pagesRead = 0;
 	int totalPages = 0;
@@ -117,6 +123,7 @@ void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 
 void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 {
+	file.open(utils::filename, std::ios::in | std::ios::out);
 	utils::printShelf(shelf);
 	
 	int sel = 0;
@@ -133,6 +140,7 @@ void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 
 void handleModify(std::vector<Book>& shelf, std::fstream& file)
 {
+	file.open(utils::filename, std::ios::in | std::ios::out);
 	utils::printShelf(shelf);
 
 	int sel = 0;
