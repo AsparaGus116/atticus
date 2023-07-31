@@ -29,6 +29,12 @@ std::ostream& operator<< (std::ostream& out, const Book& b)
 	return out;
 }
 
+std::ostream& operator<<(std::fstream& out, const Book& b)
+{
+	out << b.getTitle() << '@' << b.getPagesRead() << '@' << b.getTotalPages() << '\n';
+	return out;
+}
+
 std::istream& operator>>(std::istream& in, Book& b)
 {
 	// Input takes form: <title>@<pagesRead>@<totalPages>
@@ -72,11 +78,6 @@ Book::Book(std::string m_title, int m_pagesRead, int m_totalPages):
 	pagesRead{m_pagesRead},
 	totalPages{m_totalPages}
 {
-}
-
-void Book::writeToFile(std::fstream& f)
-{
-	f <<  title << '@' << pagesRead << '@' << totalPages << '\n';
 }
 
 bool Book::operator==(std::string s) const

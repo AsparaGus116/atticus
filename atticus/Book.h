@@ -24,11 +24,10 @@ public:
 	std::string getTitle() const { return title; }
 	int getPagesRead() const { return pagesRead; }
 	int getTotalPages() const { return totalPages; }
-	
-	void writeToFile(std::fstream& f);
 
 	//overloaded IO
 	friend std::ostream& operator<< (std::ostream& out, const Book& b);
+	friend std::ostream& operator<<(std::fstream& out, const Book& b);
 	friend std::istream& operator>> (std::istream& in, Book& b);
 
 	friend bool operator<(const Book& b1, const Book& b2);
