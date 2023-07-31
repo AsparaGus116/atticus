@@ -41,9 +41,7 @@ void utils::wipeFile(std::fstream& f)
 	{
 		f.close();
 	}
-	f.open(filename, std::ios::trunc);
-	f.close();
-	f.open(filename, std::ios::in | std::ios::out);
+	f.open(filename, std::ios::in | std::ios::out | std::ios::trunc);
 }
 
 void utils::updateFile(std::fstream& f, std::vector<Book>& shelf)
