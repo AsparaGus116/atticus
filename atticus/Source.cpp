@@ -15,8 +15,10 @@ void handleUpdate(std::vector<Book>& shelf, std::fstream& file);
 
 int main()
 {
+	
 	std::fstream file{utils::filename, std::ios::in | std::ios::out};
 	std::vector<Book> shelf;
+
 	while (!file.eof())
 	{
 		Book b;
@@ -192,5 +194,27 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 
 void handleUpdate(std::vector<Book>& shelf, std::fstream& file)
 {
+	file.open(utils::filename, std::ios::in | std::ios::out);
+	utils::printShelf(shelf);
 
+	int sel = 0;
+	do
+	{
+		std::cout << "Which book would you like to modify? (1-" << shelf.size() << ")\n" << PROMPT;
+		std::cin >> sel;
+	} while (sel <= 0 && sel > shelf.size() && std::cout << "Please enter a valid number\n");
+
+	Book b = shelf[sel - 1];
+
+	int newPagesRead = 0;
+
+	do
+	{
+		std::cout << "Enter new page count:\n" << PROMPT;
+		std::cin >> newPagesRead;
+	} while (newPagesRead <= 0 && newPagesRead > b.getTotalPages());
+	shelf.erase(shelf.begin() + (sel - 1));
+	shelf.push_back({ b.getTitle(), newPagesRead, b.getTotalPages()});
+	utils::updateFile(file, shelf);
+	std::cout << b.getTitle() << " successfully updated.\n";
 }
