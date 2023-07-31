@@ -29,7 +29,6 @@ int main()
 		}
 		
 	}
-	utils::updateFile(file, shelf);
 
 	utils::printShelf(shelf);
 	
@@ -151,7 +150,7 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 	} while (sel <= 0 && sel > shelf.size() && std::cout << "Please enter a valid number\n");
 
 	Book b = shelf[sel - 1];
-	shelf.erase(shelf.begin() + (sel - 1));
+	
 
 	char c;
 
@@ -189,12 +188,14 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 		do
 		{
 			std::cout << "Enter new page count:\n" << PROMPT;
-		} while (newTotalPages <= 0);
+			std::cin >> newTotalPages;
+		} while (newTotalPages <= 0 && newTotalPages > b.getPagesRead());
 	}
 	else
 	{
 		newTotalPages = b.getTotalPages();
 	}
+	shelf.erase(shelf.begin() + (sel - 1));
 	shelf.push_back({ newTitle, b.getPagesRead(), newTotalPages });
 	utils::updateFile(file, shelf);
 	std::cout << newTitle << " successfully modified.\n";
