@@ -1,3 +1,11 @@
-E@234@567
-Pride@123@456
-The Hobbit@1@3
+A Prayer for Owen Meany@108@627
+American Psycho@19@399
+Discrete Mathematical Structures@11@517
+Guns, Germs and Steel@40@431
+Introduction to Algorithms@93@1140
+Learn OpenGL - Graphics Programming@23@520
+Learn Python 3 the Hard Way@43@246
+Nobody Asked (Or, "Loving Myself To Spite You")@1@4
+Pale Blue Dot@10@334
+The 48 Laws of Power@95@430
+The Invention of Hugo Cabret@1@525
