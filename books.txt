@@ -8,4 +8,4 @@ Learn Python 3 the Hard Way@43@246
 Nobody Asked (Or, "Loving Myself To Spite You")@1@4
 Pale Blue Dot@10@334
 The 48 Laws of Power@95@430
-The Invention of Hugo Cabret@1@525
+The Invention of Hugo Cabret@2@525
