@@ -1,6 +1,5 @@
 #include "utils.h"
 
-
 std::string utils::toLower(std::string str)
 {
 	std::string res = "";
@@ -61,7 +60,12 @@ void utils::printShelf(std::vector<Book>& shelf)
 	int counter = 1;
 	for (auto book : shelf)
 	{
-		std::cout << counter << ") " << book;
+		std::cout << counter << ") ";
+		if (counter < 10)
+		{
+			std::cout << ' ';
+		}
+		std::cout << book;
 		++counter;
 	}
 }
