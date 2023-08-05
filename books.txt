@@ -1,11 +1,15 @@
 A Prayer for Owen Meany@108@627
 American Psycho@19@399
+Competitive Programmers Handbook@41@296
 Discrete Mathematical Structures@11@517
+Eloquent Javascript@1@427
 Guns, Germs and Steel@40@431
 Introduction to Algorithms@93@1140
 Learn OpenGL - Graphics Programming@23@520
 Learn Python 3 the Hard Way@43@246
+Moby Dick@217@625
 Nobody Asked (Or, "Loving Myself To Spite You")@1@4
 Pale Blue Dot@10@334
+Structure and Interpretation of Computer Programs@1@883
 The 48 Laws of Power@95@430
 The Invention of Hugo Cabret@1@525
