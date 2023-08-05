@@ -165,7 +165,7 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 	if (std::tolower(c) == 'y')
 	{
 		std::cout << "Enter new title:\n" << PROMPT;
-		std::cin >> newTitle;
+		std::getline(std::cin, newTitle, '\n');
 	}
 	else
 	{
