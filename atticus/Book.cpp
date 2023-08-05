@@ -3,7 +3,7 @@
 #include "utils.h"
 
 #define PLACEHOLDER 64
-#define BAR_SIZE 100
+#define BAR_SIZE 50
 
 Book::Book(std::string m_title, int m_pagesRead, int m_totalPages) :
 	title{ m_title },
@@ -16,13 +16,14 @@ std::ostream& operator<< (std::ostream& out, const Book& b)
 {
 	std::string title = b.getTitle();
 	out << title;
-	for (int i = 0; i < 84 - b.getTitle().size(); i++)
+	for (int i = 0; i < 64 - b.getTitle().size(); i++)
 	{
 		std::cout << '.';
 	}
 	double percentComplete = (double)b.getPagesRead() / b.getTotalPages();
 	out << '[';
 	int percentCompleteInt = (int)(percentComplete * 100);
+	if (!percentCompleteInt) ++percentCompleteInt;
 	for (int i = 0; i < percentCompleteInt / (100 / BAR_SIZE); i++)
 	{
 		out << (char)219;
