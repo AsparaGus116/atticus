@@ -1,5 +1,7 @@
 #include "utils.h"
 
+std::string utils::filename = "C:\\Users\\gusbr\\Desktop\\CodingShit\\C++\\atticus\\books.txt";
+
 std::string utils::toLower(std::string str)
 {
 	std::string res = "";
@@ -61,11 +63,9 @@ void utils::printShelf(std::vector<Book>& shelf)
 	for (auto book : shelf)
 	{
 		std::cout << counter << ") ";
-		if (counter < 10)
-		{
-			std::cout << ' ';
-		}
+		std::cout << (counter < 10 ? " " : "");
 		std::cout << book;
+
 		++counter;
 	}
 }
