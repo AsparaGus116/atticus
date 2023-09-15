@@ -1,6 +1,6 @@
 A Prayer for Owen Meany@108@627
 American Psycho@19@399
-Brave New World@1@259
+Brave New World@25@259
 Competitive Programmers Handbook@41@296
 Discrete Mathematical Structures@11@517
 Eloquent Javascript@1@427
