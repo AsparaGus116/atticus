@@ -1,6 +1,6 @@
 #include "Book.h"
-
 #include "utils.h"
+
 
 #define PLACEHOLDER 64
 #define BAR_SIZE 50

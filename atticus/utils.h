@@ -5,12 +5,17 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "Book.h"
 
 namespace utils
 {
+	extern std::map<char, std::string> optionNames;
+
 	extern std::string filename;
+
+	void printOption(char option);
 
 	std::string toLower(std::string str);
 
@@ -21,5 +26,7 @@ namespace utils
 	void updateFile(std::vector<Book>& shelf, std::fstream& file);
 
 	void printShelf(std::vector<Book>& shelf);
+
+	void printShelf(std::vector<Book>& shelf, char option);
 }
 

@@ -1,5 +1,23 @@
 #include "utils.h"
 
+
+std::map<char, std::string> utils::optionNames = 
+{
+	{'a', "add book"},
+	{'d', "delete book"},
+	{'m', "modify book"},
+	{'u', "update pages read"},
+	{'v', "view books"},
+	{'e', "exit"},
+	{'y', "yes"},
+	{'n', "no"}
+};
+
+void utils::printOption(char option)
+{
+	std::cout << optionNames[option] << '\n';
+}
+
 std::string utils::filename = "C:\\Users\\gusbr\\Desktop\\CodingShit\\C++\\atticus\\books.txt";
 
 std::string utils::toLower(std::string str)
@@ -68,4 +86,10 @@ void utils::printShelf(std::vector<Book>& shelf)
 
 		++counter;
 	}
+}
+
+void utils::printShelf(std::vector<Book>& shelf, char option)
+{
+	printShelf(shelf);
+	printOption(option);
 }

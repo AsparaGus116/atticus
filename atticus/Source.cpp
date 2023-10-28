@@ -2,6 +2,8 @@
 #include <vector>
 #include <cstdlib>
 #include <fstream>
+#include <conio.h>
+#include <map>
 
 #include "Book.h"
 #include "utils.h"
@@ -12,6 +14,25 @@ void handleAdd(std::vector<Book>& shelf, std::fstream& file);
 void handleDelete(std::vector<Book>& shelf, std::fstream& file);
 void handleModify(std::vector<Book>& shelf, std::fstream& file);
 void handleUpdate(std::vector<Book>& shelf, std::fstream& file);
+
+char getInput(std::string options)
+{
+	while (1)
+	{
+		if (_kbhit())
+		{
+			char c = _getch();
+			for (auto x : options)
+			{
+				if (c == x)
+				{
+					return x;
+				}
+			}
+		}
+		
+	}
+}
 
 int main()
 {
@@ -39,10 +60,10 @@ int main()
 		do
 		{
 			std::cout << "Would you like to (a)dd, (d)elete, (m)odify a book, (u)pdate pages read, (v)iew, or (e)xit?\n" << PROMPT;
-			std::cin >> option;
-			std::cin.ignore(4096, '\n');
+			option = getInput(optionList);
 		} while (optionList.find(option) == -1 && std::cout << "Invalid option, please try again.\n");
 
+		std::cout << utils::optionNames[option] << '\n';
 		switch (option)
 		{
 		case 'a':
@@ -62,7 +83,7 @@ int main()
 			file.close();
 			break;
 		case 'v':
-			utils::printShelf(shelf);
+			utils::printShelf(shelf, option);
 			break;
 		case 'e':
 			return 0;
@@ -123,7 +144,7 @@ void handleAdd(std::vector<Book>& shelf, std::fstream& file)
 void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 {
 	file.open(utils::filename, std::ios::in | std::ios::out);
-	utils::printShelf(shelf);
+	utils::printShelf(shelf, 'd');
 	
 	int sel = 0;
 	do
@@ -140,7 +161,7 @@ void handleDelete(std::vector<Book>& shelf, std::fstream& file)
 void handleModify(std::vector<Book>& shelf, std::fstream& file)
 {
 	file.open(utils::filename, std::ios::in | std::ios::out);
-	utils::printShelf(shelf);
+	utils::printShelf(shelf, 'm');
 
 	int sel = 0;
 	do
@@ -157,9 +178,9 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 	do
 	{
 		std::cout << "Would you like to change the title? (y/n)\n" << PROMPT;
-		std::cin >> c;
-		std::cin.ignore(4096, '\n');
+		c = getInput("yn");
 	} while (std::tolower(c) != 'y' && std::tolower(c) != 'n');
+	utils::printOption(c);
 
 	std::string newTitle = "";
 	if (std::tolower(c) == 'y')
@@ -177,9 +198,9 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 	do
 	{
 		std::cout << "Would you like to change the total pages? (y/n)\n" << PROMPT;
-		std::cin >> c;
-		std::cin.ignore(4096, '\n');
+		c = getInput("yn");
 	} while (std::tolower(c) != 'y' && std::tolower(c) != 'n');
+	utils::printOption(c);
 
 	int newTotalPages = 0;
 
@@ -204,7 +225,7 @@ void handleModify(std::vector<Book>& shelf, std::fstream& file)
 void handleUpdate(std::vector<Book>& shelf, std::fstream& file)
 {
 	file.open(utils::filename, std::ios::in | std::ios::out);
-	utils::printShelf(shelf);
+	utils::printShelf(shelf, 'u');
 
 	int sel = 0;
 	do
