@@ -11,7 +11,8 @@ Learn Python 3 the Hard Way@43@246
 Moby Dick@217@625
 Nobody Asked (Or, "Loving Myself To Spite You")@1@4
 Pale Blue Dot@10@334
-Project Hail Mary@1@1000
+Project Hail Mary@476@476
+Red Rising@1@500
 Structure and Interpretation of Computer Programs@1@883
 The 48 Laws of Power@95@430
 The Invention of Hugo Cabret@1@525
