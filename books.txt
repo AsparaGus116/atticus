@@ -7,7 +7,7 @@ Eloquent Javascript@1@427
 Guns, Germs and Steel@40@431
 Introduction to Algorithms@93@1140
 Learn OpenGL - Graphics Programming@23@520
-Learn Python 3 the Hard Way@43@246
+Learn Python 3 the Hard Way@42@246
 Moby Dick@217@625
 Nobody Asked (Or, "Loving Myself To Spite You")@1@4
 Pale Blue Dot@10@334
